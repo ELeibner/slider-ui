@@ -10,6 +10,8 @@ import {
   useState,
 } from 'react';
 
+import styles from './Slider.module.css';
+
 interface SliderProps {
   /* minimum value of the slider */
   min: number;
@@ -103,9 +105,21 @@ const Slider: React.FC<SliderProps> = ({
       aria-valuenow={currentValue}
       onMouseDown={handleStart}
       onTouchStart={handleStart}
+      className={styles.slider}
+      style={{
+        width,
+      }}
     >
-      <button/>
-      <div/>
+      <button
+        className={styles.thumb}
+        style={{
+          left: `${percentage}%`,
+        }}
+      />
+      <div
+        className={styles.sliderBefore}
+        style={{ width: `${percentage}%` }}
+      />
     </div>
   );
 };
